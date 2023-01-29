@@ -20,6 +20,7 @@ public class MainApplication extends GraphicsApplication {
 	private MenuPane menu;
 	private GamePane game;
 	private PausePane pause;
+	private ScorePane scores;
 	private QuitPane quit;
 	private GameOverPane over; 
 	
@@ -59,6 +60,7 @@ public class MainApplication extends GraphicsApplication {
 		over = new GameOverPane(this);
 		quit = new QuitPane(this);
 		pause = new PausePane(this);
+		scores = new ScorePane(this);
 		game = new GamePane(this);
 		somePane = new SomePane(this);
 		menu = new MenuPane(this);
@@ -137,6 +139,10 @@ public class MainApplication extends GraphicsApplication {
 	
 	public void switchToPause() {
 		switchToScreen(pause);
+	}
+	
+	public void switchToScores() {
+		switchToScreen(scores);
 	}
 	
 	public void switchToQuit() {

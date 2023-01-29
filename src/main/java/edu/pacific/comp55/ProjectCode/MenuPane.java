@@ -16,6 +16,7 @@ public class MenuPane extends GraphicsPane {
 	private GImage menu;
 	private GamePane game;
 	private GButton play;
+	private GButton scores;
 	private GButton quit;
 	
 
@@ -25,6 +26,10 @@ public class MenuPane extends GraphicsPane {
 		rect = new GButton("controls", 430, 450, 200, 100);
 		rect.setColor(Color.black);
 		rect.setVisible(false);
+		
+		scores = new GButton("scores", 430, 310, 200, 100);
+		scores.setColor(Color.black);
+		scores.setVisible(false);
 		
 		play = new GButton("play", 240, 380, 150, 80);
 		play.setFillColor(Color.red);
@@ -42,6 +47,7 @@ public class MenuPane extends GraphicsPane {
 	public void showContents() {
 		program.add(menu);
 		program.add(rect);
+		program.add(scores);
 		program.add(play);
 		program.add(quit);
 	}
@@ -50,6 +56,7 @@ public class MenuPane extends GraphicsPane {
 	public void hideContents() {
 		program.remove(menu);
 		program.remove(rect);
+		program.remove(scores);
 		program.remove(play);
 		program.remove(quit);
 	}
@@ -59,6 +66,8 @@ public class MenuPane extends GraphicsPane {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == rect) {
 			program.switchToSome();
+		}else if (obj == scores) {
+			System.out.println("Scores");
 		}else if(obj == play) {
 			//program.restartTime();
 			program.min = 0;
