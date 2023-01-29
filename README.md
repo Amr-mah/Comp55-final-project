@@ -1,11 +1,22 @@
-# 55starterfiles
-Starter Project for Comp 55
+# High Scores Section
+## Overview
+A high scores section would be accessed from the main menu and would save the top 5 scores of the user and display them.
+This will be done using an external text file which saves a user's score if it's a top 5 score.
+It can be implemented in the mainApplication class. 
+The first thing that will be implemented is the high scores button in the menu 
+Clicking high scores will open a page with 5 spots for each high score
 
-You will use this project as your base.
-Make sure that you understand the two files provided here
+## Pseudocode
+After user finishes game:
 
-## UML Class Diagram for files provided
-![](media/55GroupProjectUML.jpg)
+&emsp; get user score
 
-## UML Sequence Diagram for files provided
-![](media/55GroupProjectSequenceDiagram.png)
+&emsp; read scores file
+  
+&emsp; if # of scores in file < 5
+  
+&emsp; &emsp; Insert user score in correct position  
+    
+&emsp; else if # of scores in file = 5 and user score > lowest score
+  
+&emsp; &emsp; insert user score in correct position and remove last score from list
