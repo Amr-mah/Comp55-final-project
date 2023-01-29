@@ -67,7 +67,7 @@ public class MenuPane extends GraphicsPane {
 		if (obj == rect) {
 			program.switchToSome();
 		}else if (obj == scores) {
-			System.out.println("Scores");
+			program.switchToScores();
 		}else if(obj == play) {
 			//program.restartTime();
 			program.min = 0;

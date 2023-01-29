@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/resources/Scores.png</name>
+			<type>1</type>
+			<location>C:/Users/amrmh/git/Comp55-final-project/src/main/resources/Scores.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
