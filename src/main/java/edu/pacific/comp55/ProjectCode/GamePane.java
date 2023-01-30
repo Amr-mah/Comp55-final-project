@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.Timer;
 
@@ -23,6 +25,8 @@ public class GamePane extends GraphicsPane implements ActionListener {
 	private GImage next;
 	private GImage heldBlock;
 	private GImage hold;
+	
+	private FileWriter scoreWriter;
 
 	public boolean gamePaused = false;
 	public boolean justPaused = false;
@@ -111,7 +115,19 @@ public class GamePane extends GraphicsPane implements ActionListener {
 		justPaused = false;
 		
 		if (board.fullBoard()) {
+			try {
+				scoreWriter = new FileWriter("C:\\Users\\amrmh\\git\\comp55-final-project\\Scores.txt",true);
+				scoreWriter.write(Integer.toString(program.getScore()) + "\n");
+				scoreWriter.close();
+				System.out.println("Score Written");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Couldnt write to file");
+				e.printStackTrace();
+			}
 			System.out.println("game over!");
+			System.out.println("Final Score:");
+			System.out.println(program.getScore());
 			gameTimer.stop();
 			program.stopTime();
 			program.stopSound();

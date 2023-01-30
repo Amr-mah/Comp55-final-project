@@ -14,6 +14,7 @@ package edu.pacific.comp55.starter;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public abstract class GraphicsPane implements Interfaceable {
 	@Override

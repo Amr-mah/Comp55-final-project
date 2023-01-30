@@ -2,6 +2,8 @@ package edu.pacific.comp55.ProjectCode;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.Timer;
 
@@ -23,6 +25,8 @@ public class MainApplication extends GraphicsApplication {
 	private ScorePane scores;
 	private QuitPane quit;
 	private GameOverPane over; 
+	
+	private File scoresFile;
 	
 	private Game consoleGame;
 	
@@ -64,6 +68,18 @@ public class MainApplication extends GraphicsApplication {
 		game = new GamePane(this);
 		somePane = new SomePane(this);
 		menu = new MenuPane(this);
+		scoresFile = new File("Scores.txt");
+		try {
+		      scoresFile = new File("C:\\Users\\amrmh\\git\\comp55-final-project\\Scores.txt");
+		      if (scoresFile.createNewFile()) {
+		        System.out.println("File created: " + scoresFile.getName());
+		      } else {
+		        System.out.println("File already exists.");
+		      }
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
 		setupInteractions();
 		switchToMenu();
 	}
