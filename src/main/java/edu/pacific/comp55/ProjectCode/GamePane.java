@@ -116,7 +116,7 @@ public class GamePane extends GraphicsPane implements ActionListener {
 		
 		if (board.fullBoard()) {
 			try {
-				scoreWriter = new FileWriter("C:\\Users\\amrmh\\git\\comp55-final-project\\Scores.txt",true);
+				scoreWriter = new FileWriter("Scores.txt",true);
 				scoreWriter.write(Integer.toString(program.getScore()) + "\n");
 				scoreWriter.close();
 				System.out.println("Score Written");

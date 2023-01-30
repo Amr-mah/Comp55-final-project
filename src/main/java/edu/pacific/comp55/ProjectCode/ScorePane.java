@@ -1,5 +1,7 @@
 package edu.pacific.comp55.ProjectCode;
 import java.awt.event.MouseEvent;
+import java.awt.*;
+import javax.swing.JFrame;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import acm.graphics.GImage;
+import acm.graphics.GLabel;
 import acm.graphics.GObject;
 import edu.pacific.comp55.starter.GraphicsPane;
 
@@ -41,48 +44,6 @@ public class ScorePane extends GraphicsPane {
 	public void showContents() {
 		program.add(scores);
 		
-		l = new ArrayList<String>();
-		l2 = new ArrayList<Integer>();
-		
-//		try {
-//			  System.out.println("Read");
-//		      scoresFile = new File("Scores.txt");
-//		      myReader = new Scanner(scoresFile);
-//		      while (myReader.hasNextLine()) {
-//		        String data = myReader.nextLine();
-//		        System.out.println(data);
-//		      }
-//		      myReader.close();
-//		    } catch (FileNotFoundException e) {
-//		      System.out.println("An error occurred.");
-//		      e.printStackTrace();
-//		    }
-		
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader("Scores.txt"));
-			String currentLine = reader.readLine();
-			while (currentLine != null) {
-				l.add(currentLine);
-				currentLine = reader.readLine();
-			}
-			
-			for (int i = 0; i < l.size(); i++) {
-				int num = Integer.parseInt(l.get(i));
-				l2.add(num);
-			}
-			
-			System.out.println(l2);
-			
-			Collections.sort(l2,Collections.reverseOrder());
-			
-			System.out.println(l2);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		//program.add(para);
 	}

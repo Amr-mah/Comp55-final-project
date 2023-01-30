@@ -2,8 +2,15 @@ package edu.pacific.comp55.ProjectCode;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.Timer;
 
@@ -26,16 +33,33 @@ public class MainApplication extends GraphicsApplication {
 	private QuitPane quit;
 	private GameOverPane over; 
 	
+	private List<String> l;
+	private List<Integer> l2;
+	
+	Scanner myReader;
+	
 	private File scoresFile;
 	
 	private Game consoleGame;
 	
 	private Block block;	
 	private Board board;
-	
+
 	private GLabel timer;
 	private GLabel scoreLabel;
 	private GLabel score;
+	private GLabel high1;
+	private GLabel high2;
+	private GLabel high3;
+	private GLabel high4;
+	private GLabel high5;
+	
+	public int score1 = 0;
+	public int score2 = 0;
+	public int score3 = 0;
+	public int score4 = 0;
+	public int score5 = 0;
+	
 	
 	public int min = 0;
 	public int sec = 0;
@@ -55,7 +79,17 @@ public class MainApplication extends GraphicsApplication {
 		timer = new GLabel("timer", 0, 100);
 		scoreLabel = new GLabel("SCORE: ", 20, 100);
 		score = new GLabel(Integer.toString(scoreNum), 10, 100);
+		high1 = new GLabel(Integer.toString(score1),50,50);
+		high2 = new GLabel(Integer.toString(score2),50,100);
+		high3 = new GLabel(Integer.toString(score3),50,150);
+		high4 = new GLabel(Integer.toString(score4),50,200);
+		high5 = new GLabel(Integer.toString(score5),50,250);
 		
+		add(high1);
+		add(high2);
+		add(high3);
+		add(high4);
+		add(high5);
 		add(timer);
 		add(scoreLabel);
 		add(score);
@@ -70,7 +104,7 @@ public class MainApplication extends GraphicsApplication {
 		menu = new MenuPane(this);
 		scoresFile = new File("Scores.txt");
 		try {
-		      scoresFile = new File("C:\\Users\\amrmh\\git\\comp55-final-project\\Scores.txt");
+		      scoresFile = new File("Scores.txt");
 		      if (scoresFile.createNewFile()) {
 		        System.out.println("File created: " + scoresFile.getName());
 		      } else {
@@ -158,7 +192,65 @@ public class MainApplication extends GraphicsApplication {
 	}
 	
 	public void switchToScores() {
+		l = new ArrayList<String>();
+		l2 = new ArrayList<Integer>();
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Scores.txt"));
+			String currentLine = reader.readLine();
+			while (currentLine != null) {
+				l.add(currentLine);
+				currentLine = reader.readLine();
+			}
+			
+			for (int i = 0; i < l.size(); i++) {
+				int num = Integer.parseInt(l.get(i));
+				l2.add(num);
+			}
+			
+			
+			
+			System.out.println(l2);
+			
+			Collections.sort(l2,Collections.reverseOrder());
+			
+			System.out.println(l2);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		score1 = new GLabel(Integer.toString(l2.get(0)),100,100);
 		switchToScreen(scores);
+		if (l2.size() >= 1)
+			high1.setLabel(Integer.toString(l2.get(0)));
+		high1.setFont("Arial-Bold-38");
+		high1.setLocation(450, 180);
+		high1.sendToFront();
+		if (l2.size() >= 2)
+			high2.setLabel(Integer.toString(l2.get(1)));
+		high2.setFont("Arial-Bold-38");
+		high2.setLocation(450, 242);
+		high2.sendToFront();
+		if (l2.size() >= 3)
+			high3.setLabel(Integer.toString(l2.get(2)));
+		high3.setFont("Arial-Bold-38");
+		high3.setLocation(450, 304);
+		high3.sendToFront();
+		if (l2.size() >= 4)
+			high4.setLabel(Integer.toString(l2.get(3)));
+		high4.setFont("Arial-Bold-38");
+		high4.setLocation(450, 366);
+		high4.sendToFront();
+		if (l2.size() >= 5) 
+			high5.setLabel(Integer.toString(l2.get(4)));
+		high5.setFont("Arial-Bold-38");
+		high5.setLocation(450, 428);
+		high5.sendToFront();
 	}
 	
 	public void switchToQuit() {
