@@ -15,8 +15,10 @@ After user finishes game:
   
 &emsp; if # of scores in file < 5
   
-&emsp; &emsp; Insert user score in correct position  
+&emsp; &emsp; Insert user score in correct position in file
     
 &emsp; else if # of scores in file = 5 and user score > lowest score
   
-&emsp; &emsp; insert user score in correct position and remove last score from list
+&emsp; &emsp; insert user score in correct position and remove last score from file
+
+When the user goes to the scores section, ScorePane class will read the scores file and display it to the user
