@@ -22,3 +22,18 @@ After user finishes game:
 &emsp; &emsp; insert user score in correct position and remove last score from file
 
 When the user goes to the scores section, ScorePane class will read the scores file and display it to the user
+
+## How I implemented it
+MainApplication create a scores file as soon as the game starts unless it already exists.
+
+Once a user plays a game and loses, the score they get will be immediately written to the scores file. This was done in the gamePane class
+
+The scorePane class displays the scores screen when the user clicks on it.
+
+When the user returns to the main menu and clicks the scores button, the scores file will be read into a list and put in descending order. The first five elements will be displayed using GLabels. If there are less than 5 elements, a 0 will be used for each missing element. This was all done in the mainApplication class
+
+
+<img width="775" alt="Screenshot 2023-01-30 155824" src="https://user-images.githubusercontent.com/89720700/215625278-ddf420fd-4ffd-4fcc-9aff-33ab31a1964c.png">
+
+
+<img width="772" alt="Screenshot 2023-01-30 155846" src="https://user-images.githubusercontent.com/89720700/215625244-31211c35-10ba-43c7-855b-a4ffbdb2776f.png">
